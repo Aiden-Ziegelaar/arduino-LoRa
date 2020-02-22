@@ -22,9 +22,9 @@
 #else
 #define LORA_DEFAULT_SPI           SPI
 #define LORA_DEFAULT_SPI_FREQUENCY 8E6 
-#define LORA_DEFAULT_SS_PIN        10
-#define LORA_DEFAULT_RESET_PIN     9
-#define LORA_DEFAULT_DIO0_PIN      2
+#define LORA_DEFAULT_SS_PIN        9
+#define LORA_DEFAULT_RESET_PIN     10
+#define LORA_DEFAULT_DIO0_PIN      6
 #endif
 
 #define PA_OUTPUT_RFO_PIN          0
@@ -57,7 +57,6 @@ public:
 
 #ifndef ARDUINO_SAMD_MKRWAN1300
   void onReceive(void(*callback)(int));
-  void onTxDone(void(*callback)());
 
   void receive(int size = 0);
 #endif
@@ -118,7 +117,6 @@ private:
   int _packetIndex;
   int _implicitHeaderMode;
   void (*_onReceive)(int);
-  void (*_onTxDone)();
 };
 
 extern LoRaClass LoRa;
